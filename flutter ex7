@@ -1,0 +1,66 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Test Title"),
+      ),
+      body: GridView(
+        scrollDirection: Axis.horizontal,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 6, crossAxisSpacing: 15.0, mainAxisSpacing: 12.0),
+        children: [
+          postContainer(number: "1", colorData: Colors.amber),
+          postContainer(number: "2", colorData: Colors.greenAccent),
+          postContainer(number: "3", colorData: Colors.blueAccent),
+          postContainer(number: "4", colorData: Colors.redAccent),
+          postContainer(number: "5", colorData: Colors.amber),
+          postContainer(number: "6", colorData: Colors.greenAccent),
+          postContainer(number: "7", colorData: Colors.blueAccent),
+          postContainer(number: "8", colorData: Colors.redAccent),
+          postContainer(number: "9", colorData: Colors.amber),
+          postContainer(number: "10", colorData: Colors.greenAccent),
+          postContainer(number: "11", colorData: Colors.blueAccent),
+          postContainer(number: "12", colorData: Colors.redAccent),
+        ],
+      ),
+    );
+  }
+
+  Container postContainer(
+      {String number = "0", Color colorData = Colors.amber}) {
+    return Container(
+      height: 200,
+      color: colorData,
+      child: Center(child: Text("Box $number")),
+    );
+  }
+}
